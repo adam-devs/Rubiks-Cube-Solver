@@ -1,4 +1,13 @@
 import peasy.*;
 PeasyCam cam;
 
-float len = 100;
+int len = 100; 
+
+void setup() {
+}
+
+
+void draw() {
+  background(204);
+  translate(-len, -len, -len);
+}
