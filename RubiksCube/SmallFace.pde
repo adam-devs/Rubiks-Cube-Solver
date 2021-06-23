@@ -1,12 +1,12 @@
-class SmallFace {
-  private COLOUR colour;
-  private FACE face;
+public class SmallFace {
+  private int colour;
+  private int face;
   private int pos; 
   //0 1 2
   //3 4 5
   //6 7 8
 
-  SmallFace(COLOUR colour, FACE face, int pos) {
+  SmallFace(int colour, int face, int pos) {
     this.colour = colour;
     this.face = face;
     this.pos = pos;
@@ -17,42 +17,42 @@ class SmallFace {
     strokeWeight(2);
     int[] coordinates = {};
     switch(face) {
-    case TOP://top
+    case 0://Top
       pushMatrix();
       fill(colourConvert(colour));
       coordinates = positionToCoordinate(pos, face);
       translate(coordinates[0], coordinates[1] - len/2, coordinates[2]);
       box(len, 0, len);
       popMatrix();
-    case LEFT://left
+    case 1://Left
       pushMatrix();
       fill(colourConvert(colour));
       coordinates = positionToCoordinate(pos, face);
       translate(coordinates[0] - len/2, coordinates[1], coordinates[2]);
       box(0, len, len);
       popMatrix();
-    case FRONT://front
+    case 2://Front
       pushMatrix();
       fill(colourConvert(colour));
       coordinates = positionToCoordinate(pos, face);
       translate(coordinates[0], coordinates[1], coordinates[2] - len/2);
       box(len, len, 0);
       popMatrix();
-    case RIGHT://right
+    case 3://Right
       pushMatrix();
       fill(colourConvert(colour));
       coordinates = positionToCoordinate(pos, face);
       translate(coordinates[0] - len/2, coordinates[1], coordinates[2]);
       box(0, len, len);
       popMatrix();
-    case BOTTOM://bottom
+    case 4://Bottom
       pushMatrix();
       fill(colourConvert(colour));
       coordinates = positionToCoordinate(pos, face);
       translate(coordinates[0], coordinates[1] - len/2, coordinates[2]);
       box(len, 0, len);
       popMatrix();
-    case BACK://back
+    case 5://Back
       pushMatrix();
       fill(colourConvert(colour));
       coordinates = positionToCoordinate(pos, face);
@@ -62,35 +62,35 @@ class SmallFace {
     }
   }
 
-  int[] positionToCoordinate(int pos, FACE face) {
+  int[] positionToCoordinate(int pos, int face) {
     int[] coordinates = {0, 0, 0};
-    switch(face) {//top 0
-    case TOP:
+    switch(face) {//Top 0
+    case 0:
       coordinates[0] = int(pos%3 * len);
       coordinates[1] = 0;
       coordinates[2] = int((pos - (pos%3))*len/3);
 
-    case LEFT://left 1
+    case 1://Left 1
       coordinates[0] = 0;
       coordinates[1] = int(pos%3 * len);
       coordinates[2] = int((pos - (pos%3))*len/3);
 
-    case FRONT://front 2
+    case 2://Front 2
       coordinates[0] = int(pos%3 * len);
       coordinates[1] = int((pos - (pos%3))*len/3);
       coordinates[2] = int(3 * len);
 
-    case RIGHT://right 3
+    case 3://Right 3
       coordinates[0] = int(3 * len);
       coordinates[1] = int(pos%3 * len);
       coordinates[2] = int((pos - (pos%3))*len/3);
 
-    case BOTTOM://bottom 4
+    case 4://Bottom 4
       coordinates[0] = int((pos - (pos%3))*len/3);
       coordinates[1] = int(3 * len);
       coordinates[2] = int(pos%3 * len);
 
-    case BACK://back 5
+    case 5://Back 5
       coordinates[0] = int(pos%3 * len);
       coordinates[1] = int((pos - (pos%3))*len/3);
       coordinates[2] = 0;
@@ -98,19 +98,19 @@ class SmallFace {
     return coordinates;
   }
 
-  color colourConvert(COLOUR i) {
+  color colourConvert(int i) {
     switch(i) {
-    case WHITE://white
+    case 0://White
       return color(255, 255, 255);
-    case ORANGE://orange
+    case 1://Orange
       return color(241, 110, 28);
-    case GREEN://green
+    case 2://Green
       return color(50, 173, 66);
-    case RED://red
+    case 3://Red
       return color(244, 50, 48);
-    case YELLOW://yellow
+    case 4://Yellow
       return color(248, 231, 39);
-    case BLUE://blue
+    case 5://Blue
       return color(49, 78, 158);
     default:
       return color(0, 0, 0);
