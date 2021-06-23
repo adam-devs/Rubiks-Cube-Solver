@@ -11,15 +11,15 @@ public class Cube {
       for (int j = 0; j < DIM * DIM; j++) {
         state[(i * DIM * DIM) + j] = i;
         display[(i * DIM * DIM) + j] = i;
-        displayFaces[(i * DIM * DIM) + j] = new SmallFace(0, i % 9, j);
+        displayFaces[(i * DIM * DIM) + j] = new SmallFace(i % 9, i % 9, j);
       }
     }
-    
   }
 
   void show() {
     //uses display[]
     for (int i = 0; i < SIDES * DIM * DIM; i++) {
+      displayFaces[i].colour = display[i];
       displayFaces[i].show();
     }
   }
