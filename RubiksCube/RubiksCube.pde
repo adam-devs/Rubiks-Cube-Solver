@@ -21,8 +21,6 @@ void setup() {
 void drawCube(Cube cube) {
   for (int i = 0; i < SIDES * DIM * DIM; i++) {
     cube.displayFaces[i].show();
-    //print(" ");
-    //print(cube.display[i]);
   }
 }
 
@@ -30,11 +28,5 @@ void drawCube(Cube cube) {
 void draw() {
   background(204);
   translate(-len, -len, -len);
-  
-  pushMatrix();
-  translate(-len / 2, len, len);
-  fill(0);
-  box(0, len, len);
-  popMatrix();
   cube.show();
 }
