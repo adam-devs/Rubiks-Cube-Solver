@@ -14,6 +14,8 @@ public class Cube {
         displayFaces[(i * DIM * DIM) + j] = new SmallFace(i % 9, i % 9, j);
       }
     }
+    display[28] = -1;
+    
   }
 
   void show() {
